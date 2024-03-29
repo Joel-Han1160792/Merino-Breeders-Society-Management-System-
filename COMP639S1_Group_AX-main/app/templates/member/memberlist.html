@@ -1,0 +1,51 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container mt-4">
+  <div class="mb-4">
+    <a href="{{ url_for('manager_dashboard') }}" class="btn btn-light btn-sm">
+      <i class="fas fa-arrow-left"></i> Back
+    </a>
+  </div>
+    <!-- Search Form -->
+    <form class="d-flex my-4">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search by name"
+        aria-label="Search"
+        name="search"
+        value="{{ request.args.get('search', '') }}"
+      />
+      <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+    
+  <table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">Member</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for member in memberlist %}
+
+      <tr>
+        <td>{{member[1]}} {{member[2]}} {{member[3]}}</td>
+        <td>{{member[5]}}</td>
+        <td>{{member[6]}}</td>
+
+        <td>
+          <a href="{{url_for('memberprofileupdate', UserID =member[0] )}}"
+            >Update</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

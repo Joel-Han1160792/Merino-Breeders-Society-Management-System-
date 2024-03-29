@@ -1,0 +1,18 @@
+{% extends 'layout.html' %} {% block title %}Home{% endblock %} {% block content
+%}
+
+
+
+<form class="loginForm" action="{{url_for('upload_image', userID = userID)}}" method="post" enctype="multipart/form-data">
+
+    
+   <div class="mb-3">
+        <label for="photo" class="form-label">Upload Photo</label>
+        <input type="file" name = "photo"/>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+   
+    </form>
+  
+
+{% endblock %}

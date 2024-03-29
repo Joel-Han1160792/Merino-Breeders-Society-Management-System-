@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Tutor</th>
+        <th scope="col">Position</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Email</th>
+        {% if session['role'] == 3 %}
+        <th></th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for tutor in tutorlist %}
+
+      <tr>
+        <td>{{tutor[1]}} {{tutor[2]}} {{tutor[3]}}</td>
+        <td>{{tutor[4]}}</td>
+        <td>{{tutor[5]}}</td>
+        <td>{{tutor[6]}}</td>
+        {% if session['role'] == 3 %}
+        <td>
+          <a href="{{url_for('tutorprofileupdate', ProfileID =tutor[0] )}}"
+            >Update</a
+          >
+        </td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}

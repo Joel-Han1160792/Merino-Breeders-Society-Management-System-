@@ -1,0 +1,25 @@
+{% extends 'layout.html' %} {% block title %}Home{% endblock %} {% block content
+%}
+
+
+    <form class="loginForm" action="/update/password" method="post">
+    
+   <div class="mb-3">
+        <label for="currentpwd" class="form-label">Current Password</label>
+        <input type="password" class="form-control" id="currentpwd" name = "currentpwd" placeholder="Plese input your current password"/>
+      </div>
+ <div class="mb-3">
+      <div class="mb-3">
+        <label for="pwd" class="form-label">New Password</label>
+        <input type="password" class="form-control" id="newpwd" name = "newpwd" placeholder="Please input your new password "/>
+      </div>
+ <div class="mb-3">
+        <label for="pwd_check" class="form-label">Password Check</label>
+        <input type="password" class="form-control" id="pwd_check" name = "pwd_check" placeholder="Please input new password again"/>
+      </div>
+      <div>{{msg}}</div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+
+
+{% endblock %}

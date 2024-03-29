@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container mt-4">
+  <div class="mb-4">
+    <a href="{{ url_for('tutor_dashboard') }}" class="btn btn-light btn-sm">
+      <i class="fas fa-arrow-left"></i> Back
+    </a>
+  </div>
+  <h2>Workshops</h2>
+
+  <!-- Search Form -->
+  <form class="d-flex my-4">
+    <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Search by tutor name"
+      aria-label="Search"
+      name="search"
+      value="{{ search_query }}"
+    />
+    <button class="btn btn-outline-primary" type="submit">Search</button>
+  </form>
+
+  <!-- Workshops Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tutor Name</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Location</th>
+        <th>Cost</th>
+        <th>Capacity</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for workshop in tutor_workshops %}
+      <tr>
+        <td>{{ workshop[0] }}</td>
+        <td>{{ workshop[1] }}</td>
+        <td>{{ workshop[2] }}</td>
+        <td>{{ workshop[3] }}</td>
+        <td>{{ workshop[4] }}</td>
+        <td>{{ workshop[5] }}</td>
+        <td>{{ workshop[6] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

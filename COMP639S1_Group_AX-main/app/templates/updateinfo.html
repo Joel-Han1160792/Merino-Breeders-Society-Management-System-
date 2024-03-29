@@ -1,0 +1,144 @@
+{% extends 'layout.html' %} {% block title %}Home{% endblock %} {% block content
+%}
+
+
+    <form class="loginForm" action="{{ form_action }}" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="title" class="form-label"></label>Title:</label>
+      <select id="title" name="title"  required>
+        <option value="">Please select your title</option>
+        <option value="mr">Mr.</option>
+        <option value="mrs">Mrs.</option>
+        <option value="ms">Ms.</option>
+        <option value="miss">Miss</option>
+        <option value="mx">Mx.</option>
+        <option value="dr">Dr.</option>
+        <option value="prof">Prof.</option>
+     </select>
+    </div>   
+
+
+
+      <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstname"
+          name="firstname"
+          placeholder="First Name"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="familyname" class="form-label">Family Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="familyname"
+          name="familyname"
+          placeholder="Famliy Name"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <input
+          type="text"
+          class="form-control"
+          id="position"
+          name="position"
+          placeholder="position"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="phonenumber" class="form-label">Phone Number</label>
+        <input
+          type="number"
+          class="form-control"
+          id="phonenumber"
+          name="phonenumber"
+          placeholder="Phone Number"
+          required
+        />
+      </div>
+
+ 
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Email Address"
+          required
+        />
+      </div>
+<!-- show below if inputs when opened by a tutor -->
+{% if form_action == '/update/info/tutor' %}
+<div class="mb-3">
+  <label for="profile" class="form-label">Tutor Profile</label>
+ 
+  <textarea id="profile" 
+    name="profile" 
+    rows="4" cols="33" 
+    placeholder="Enter your profile introduction here..."
+    required></textarea>
+  
+</div>
+{% endif %}
+
+
+
+
+
+<!-- show below inputs when opened by a member -->
+  {% if form_action == '/update/info/member' %}
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea id="address" 
+          name="address"
+          rows="4" cols="33" 
+          placeholder="Enter your address details here..."
+          required>
+        </textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="DoB" class="form-label">Date of Birth</label>
+        <input
+          type="date"
+          class="form-control"
+          id="DoB"
+          name="DoB"
+          max="2008-12-31"
+          min="1934-12-31"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="breeding" class="form-label">Merino breeding details</label>
+       
+        <textarea id="breeding" 
+          name="breeding" 
+          rows="4" cols="33" 
+          placeholder="Enter your Merino breeding details here..."></textarea>
+        
+      </div>
+
+ 
+
+      {% endif %}
+      
+      <div>{{msg}}</div>
+      <button type="submit" class="btn btn-dark">Update</button>
+    </form>
+
+
+{% endblock %}
